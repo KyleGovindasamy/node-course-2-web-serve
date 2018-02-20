@@ -19,10 +19,6 @@ app.use((req,res,next)=>{
   next();
 });
 
-app.use((req,res,next)=>
-{
-    res.render('maintance.hbs');
-});
 
 app.use(express.static(__dirname+'/public'));
 
@@ -36,7 +32,7 @@ hbs.registerHelper('screamIt',(text)=>{
 // set up a handler for a http get
 app.get('/',(req, res)=>{
     res.render('home.hbs',{
-      welcomeMessage:'This is the home dfgdfgdf',
+      welcomeMessage:'This is the home ',
       pageTitle : 'Home'
     });
 });
@@ -45,7 +41,15 @@ app.get('/about',(req,res)=>
 {
     //res.send('<h1> about page </h1>');
     res.render('about.hbs',{
-      pageTitle:'ABout Page'
+      pageTitle: 'About Page'
+    });
+});
+
+// New Project pageTitle
+
+app.get('/projects',(req, res)=>{
+    res.render('projects.hbs',{
+      pageTitle : 'Projects'
     });
 });
 
